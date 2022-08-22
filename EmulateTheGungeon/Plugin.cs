@@ -42,6 +42,17 @@ namespace EmulateTheGungeon
 
         public void Start()
         {
+            var ionic = Path.Combine(Path.Combine(Info.Location, ".."), "Ionic.Zip.dll");
+            if (File.Exists(ionic))
+            {
+                try
+                {
+                    Assembly.LoadFile(ionic);
+                }
+                catch
+                {
+                }
+            }
             ETGModMainBehaviour.Instance = Chainloader.ManagerObject.AddComponent<ETGModMainBehaviour>();
             ETGModConsole.Commands = new(GetStaticMTGField("ETGModConsole", "Commands"));
             ETGMod.StartGlobalCoroutine = (Func<IEnumerator, Coroutine>)GetStaticMTGField("ETGMod", "StartGlobalCoroutine");
@@ -77,6 +88,21 @@ namespace EmulateTheGungeon
                         def.Dispose();
                         continue;
                     }
+                    def.MainModule.GetTypeReferences().Do(x =>
+                    {
+                        if(x == null)
+                        {
+                            return;
+                        }
+                        var assembly = AppDomain.CurrentDomain.GetAssemblies().ToList();
+                        assembly.Remove(mtgAssembly);
+                        assembly.RemoveAll(x => x.FullName == mtgAssembly.FullName);
+                        var type = assembly.Select(x => x.GetTypes()).SelectMany(x => x).ToList().Find(x2 => x2 != null && x2.FullName.Replace("+", "/") == x.FullName);
+                        if (type == null)
+                        {
+                            Logger.LogError("NONEXISTANT TYPE REFERENCE " + x.FullName);
+                        }
+                    });
                     Logger.LogInfo("Found valid file: " + fileName);
                     validFiles.Add(file);
                     def.Dispose();

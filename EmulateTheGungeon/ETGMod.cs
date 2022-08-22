@@ -10,7 +10,7 @@ using UnityEngine;
 
 public static partial class ETGMod
 {
-    public readonly static Version BaseVersion = new Version(0, 3, 3);
+    public readonly static Version BaseVersion = new(0, 3, 3);
     // The following line will be replaced by Travis. travis? travis who?
     public readonly static int BaseTravisBuild = 0;
     public static string BaseUIVersion

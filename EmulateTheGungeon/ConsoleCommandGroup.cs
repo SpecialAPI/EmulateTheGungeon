@@ -23,7 +23,7 @@ public class ConsoleCommandGroup : ConsoleCommandUnit
 
     public ConsoleCommandGroup AddUnit(string name, Action<string[]> action, AutocompletionSettings autocompletion)
     {
-        representedObject.InvokeMethod("AddUnit", name, action, autocompletion);
+        representedObject.InvokeMethod("AddUnit", name, action, autocompletion.represented);
         return this;
     }
 
@@ -47,7 +47,7 @@ public class ConsoleCommandGroup : ConsoleCommandUnit
 
     public ConsoleCommandGroup AddGroup(string name, Action<string[]> action, AutocompletionSettings autocompletion)
     {
-        representedObject.InvokeMethod("AddGroup", name, action, autocompletion);
+        representedObject.InvokeMethod("AddGroup", name, action, autocompletion.represented);
         return this;
     }
 

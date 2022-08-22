@@ -72,13 +72,14 @@ public static partial class ETGMod
 
     public static string RemovePrefix(this string str, string prefix)
     {
-        return str.ToLowerInvariant().StartsWith(prefix.ToLowerInvariant()) ? str.Substring(prefix.Length) : str;
+        return StartsWithInvariant(str, prefix) ? str.Substring(prefix.Length) : str;
     }
 
     public static string RemoveSuffix(this string str, string suffix)
     {
-        return str.ToLowerInvariant().StartsWith(suffix.ToLowerInvariant()) ? str.Substring(0, suffix.Length - suffix.Length) : str;
+        return StartsWithInvariant(str, suffix) ? str.Substring(0, suffix.Length - suffix.Length) : str;
     }
+
     public static int IndexOfInvariant(this string s, string a)
     {
         return s.IndexOf(a, StringComparison.InvariantCulture);

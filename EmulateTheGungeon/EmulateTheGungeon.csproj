@@ -239,6 +239,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssetMetadata.cs" />
+    <Compile Include="AutocompletionSettings.cs" />
     <Compile Include="CompatibilityTools.cs" />
     <Compile Include="ConsoleCommand.cs" />
     <Compile Include="ConsoleCommandGroup.cs" />
@@ -246,6 +247,7 @@
     <Compile Include="ETGMod.cs" />
     <Compile Include="ETGModConsole.cs" />
     <Compile Include="ETGModMainBehaviour.cs" />
+    <Compile Include="ETGModMenu.cs" />
     <Compile Include="ETGModule.cs" />
     <Compile Include="ETGModuleMetadata.cs" />
     <Compile Include="Extensions.cs" />
@@ -257,6 +259,12 @@
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RuntimeAtlas.cs" />
+    <Compile Include="SGUI\SButton.cs" />
+    <Compile Include="SGUI\SElement.cs" />
+    <Compile Include="SGUI\SGroup.cs" />
+    <Compile Include="SGUI\SImage.cs" />
+    <Compile Include="SGUI\SLabel.cs" />
+    <Compile Include="SGUI\SModifier.cs" />
     <Compile Include="StringDB.cs" />
   </ItemGroup>
   <ItemGroup>

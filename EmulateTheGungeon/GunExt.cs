@@ -29,11 +29,11 @@ public static class GunExt
 
     public static void SetAnimationFPS(this Gun gun, int fps)
     {
-        InvokeStaticMTGMethod("GunExt", "SetAnimationFPS", gun, fps);
+        GetMTGType("GunExt").GetMethod("SetAnimationFPS", new Type[] { typeof(Gun), typeof(int) }).Invoke(null, new object[] { gun, fps });
     }
     public static void SetAnimationFPS(this Gun gun, string name, int fps)
     {
-        InvokeStaticMTGMethod("GunExt", "SetAnimationFPS", gun, name, fps);
+        GetMTGType("GunExt").GetMethod("SetAnimationFPS", new Type[] { typeof(Gun), typeof(string), typeof(int) }).Invoke(null, new object[] { gun, name, fps });
     }
 
     public static Projectile ClonedPrefab(this Projectile orig)

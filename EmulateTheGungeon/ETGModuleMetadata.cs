@@ -15,6 +15,7 @@ public class ETGModuleMetadata
         }
         set
         {
+            throw new InvalidOperationException("The ETGModuleMetadata ZIP path is read-only!");
         }
     }
 
@@ -28,6 +29,7 @@ public class ETGModuleMetadata
         }
         set
         {
+            throw new InvalidOperationException("The ETGModuleMetadata directory path is read-only!");
         }
     }
 
